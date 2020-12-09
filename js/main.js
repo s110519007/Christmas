@@ -68,14 +68,14 @@ $(document).ready(function () {
     // RWD
     $(window).resize(function () {
         var w=$(window).width();
-        console.log(w);
+        var h=$(window).height();
         if (w>1024){
             $('.container').show();
             $('.loading').hide();
             $('.container').removeClass('m-container');
             $('.container').removeClass('s-container');
         }
-        else if (w>767 && w<=1024) {
+        else if (w>767 && w<=1024 && h>550) {
             noloading();
             $('.container').removeClass('s-container');
             $('.container').addClass('m-container');
