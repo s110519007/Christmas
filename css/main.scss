@@ -1,0 +1,347 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFB0B0;
+    z-index: -5;
+}
+@mixin container {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: url(../img/cover.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    z-index: -5;
+    &::before{
+        position: absolute;
+        bottom: 0;
+        content: '';
+        width: 100vw;
+        height: 30%;
+        background: url(../img/floor.png) no-repeat;
+        background-size: cover;
+    }
+}
+.container{
+    @include container();
+    $snow-size:50vw;
+    @mixin snow {
+        margin: 0 auto;
+        position: absolute;
+        left: 0;
+        width: $snow-size*1.8;
+        height: $snow-size*5;
+        transition: all .3s;
+        background-repeat: repeat-y;
+        background-size: contain;
+        pointer-events: none;
+    }
+    .snow{
+        &::before{
+            content: '';
+            @include snow();
+            top: 5%;
+            left: 5%;
+            background-image: url(../img/snow1.png);
+            animation: snow 16s linear infinite;
+            z-index: 5;
+        }
+        &::after{
+            content: '';
+            @include snow();
+            top: 5.5%;
+            left: 3.6%;
+            background-image: url(../img/snow2.png);
+            animation: snow 28s linear infinite;
+            opacity: .8;
+            filter: blur(5px);
+            z-index: 0;
+        }
+    }
+    @keyframes snow{
+        0%{
+            transform: translate(0,-$snow-size);
+        }
+        25%{
+            transform: translate(-5%,-$snow-size*3/4);
+        }
+        50%{
+            transform: translate(0,-$snow-size/2);
+        }
+        75%{
+            transform: translate(5%,-$snow-size/4);
+        }
+        100%{
+            transform: translate(0,0);
+        }
+    }
+    $text-size:28.6vw;
+    .christmas{
+        position: absolute;
+        left: 16.5%;
+        top: 17%;
+        width: $text-size;
+        height: $text-size/2.2;
+        z-index: -1;
+    }
+    @for $text from 1 to 15 {
+        .text#{$text}{
+            fill: rgba($color: #fff, $alpha: 0);
+            animation: text 1s ease-in-out forwards;
+            animation-delay: $text*.1+.8s;
+        }
+    }
+    $fog-size:41.7vw;
+    .fog{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: $fog-size;
+        height: $fog-size/2;
+        background: url(../img/fog.png) no-repeat;
+        background-size: contain;
+        animation: text-fog 1s ease-in-out;
+    }
+    @keyframes text-fog{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 100;
+        }
+    }
+    @keyframes text{
+        0%{
+            fill: rgba($color: #fff, $alpha: 0);
+        }
+        100%{
+            fill: rgba($color: #fff, $alpha: 1);
+        }
+    }
+    .decorations{
+        z-index: 10;
+        .deco{
+            $fall: .5s;
+            position: absolute;
+            transform: translateY(-100%);
+            transition: all .3s;
+            transform-origin: 50% 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            &:hover{
+                cursor: pointer;
+            }
+            &:nth-child(1){
+                right: 32%;
+                width: 5.3vw;
+                height: 5.3vw*3.4;
+                background-image: url(../img/decoration1.png);
+                &:hover{
+                    animation: shake .5s linear 1.5 forwards;
+                }
+            }
+            &:nth-child(2){
+                right: 25%;
+                width: 4vw;
+                height: 4vw*5.3;
+                background-image: url(../img/decoration2.png);
+            }
+            &:nth-child(3){
+                right: 15%;
+                width: 6vw;
+                height: 6vw*2.6;
+                background-image: url(../img/decoration3.png);
+            }
+            @for $delay from 1 to 4 {
+                &:nth-child(#{$delay}){
+                    animation-delay: (-1+$delay)*$fall;
+                }
+            }
+        }
+    }
+    $deco-end:translateY(-20px);
+    .fall,.click_fall{
+        transform: $deco-end;
+        animation: fall .5s ease-in-out forwards;
+        @for $delay from 1 to 4 {
+            &:nth-child(#{$delay}){
+                animation-delay: 0;
+            }
+        }
+    }
+    @keyframes fall {
+        0%{
+            transform: translateY(-100%);
+        }
+        50%{
+            transform: translateY(0);
+        }
+        100%{
+            transform: $deco-end;
+        }
+    }
+    @keyframes click_fall {
+        0%{
+            transform: translateY(-100%);
+        }
+        50%{
+            transform: translateY(0);
+        }
+        100%{
+            transform: $deco-end;
+        }
+    }
+    @keyframes shake {
+        0%{
+            transform: $deco-end rotate(0deg);
+        }
+        25%{
+            transform: $deco-end rotate(-5deg);
+        }
+        50%{
+            transform: $deco-end rotate(0);
+        }
+        75%{
+            transform: $deco-end rotate(5deg);
+        }
+        100%{
+            transform: $deco-end rotate(0deg);
+        }
+    }
+    .dog{
+        $dog-size:19.8vw;
+        position: absolute;
+        right: 20%;
+        bottom: 14%;
+        width: $dog-size;
+        height: $dog-size;
+        background: url(../img/dog.png) no-repeat;
+        background-size: contain;
+        pointer-events: none;
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: -$dog-size/20;
+            width: $dog-size;
+            height: $dog-size/8;
+            background: url(../img/dog_shadow.png) no-repeat;
+            background-size: contain;
+            z-index: -1;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            left: 46%;
+            width: 15%;
+            height: 15%;
+            background: url(../img/hat.png) no-repeat;
+            background-size: contain;
+            transform: translateX(-50%) rotate(10deg);
+        }
+    }
+}
+.loading{
+    display: none;
+    @include container();
+    $snow-size:50vw;
+    @mixin snow {
+        margin: 0 auto;
+        position: absolute;
+        left: 0;
+        width: $snow-size*1.8;
+        height: $snow-size*5;
+        transition: all .3s;
+        background-repeat: repeat-y;
+        background-size: contain;
+        pointer-events: none;
+    }
+    .snow{
+        &::before{
+            content: '';
+            @include snow();
+            top: 5%;
+            left: 5%;
+            background-image: url(../img/snow1.png);
+            animation: snow 16s linear infinite;
+            z-index: 5;
+        }
+        &::after{
+            content: '';
+            @include snow();
+            top: 5.5%;
+            left: 3.6%;
+            background-image: url(../img/snow2.png);
+            animation: snow 28s linear infinite;
+            opacity: .8;
+            filter: blur(5px);
+            z-index: 0;
+        }
+    }
+    @keyframes snow{
+        0%{
+            transform: translate(0,-$snow-size);
+        }
+        25%{
+            transform: translate(-5%,-$snow-size*3/4);
+        }
+        50%{
+            transform: translate(0,-$snow-size/2);
+        }
+        75%{
+            transform: translate(5%,-$snow-size/4);
+        }
+        100%{
+            transform: translate(0,0);
+        }
+    }
+    $text-size:28.6vw;
+    .christmas{
+        position: absolute;
+        left: 16.5%;
+        top: 17%;
+        width: $text-size;
+        height: $text-size/2.2;
+        z-index: -1;
+    }
+    @for $text from 1 to 15 {
+        .text#{$text}{
+            fill: rgba($color: #fff, $alpha: 0);
+            animation: text 1s ease-in-out forwards;
+            animation-delay: $text*.1+.8s;
+        }
+    }
+    $fog-size:41.7vw;
+    .fog{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: $fog-size;
+        height: $fog-size/2;
+        background: url(../img/fog.png) no-repeat;
+        background-size: contain;
+        animation: text-fog 1s ease-in-out;
+    }
+    @keyframes text-fog{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 100;
+        }
+    }
+    @keyframes text{
+        0%{
+            fill: rgba($color: #fff, $alpha: 0);
+        }
+        100%{
+            fill: rgba($color: #fff, $alpha: 1);
+        }
+    }
+}

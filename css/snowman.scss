@@ -1,0 +1,203 @@
+$snowman-size:2.6vw;
+$shadow-size:2vw;
+@mixin snowman {
+    position: absolute;
+    bottom: 14%;
+    width: $snowman-size;
+    background-size: contain;
+    background-repeat: no-repeat;
+    &::after{
+        content: '';
+        width: $snowman-size;
+        height: 100%;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        bottom: -$shadow-size/8;
+        width: $shadow-size;
+        height: $shadow-size/4;
+        background: url(../img/snowman_shadow.png) no-repeat;
+        background-size: contain;
+        z-index: -1;
+    }
+}
+.in{
+    @include snowman();
+    height: 2vw;
+    right: 16.5%;
+    &::after{
+        background-image: url(../img/snowman1.svg);
+        animation: into_snowman 2s ease-in forwards;
+    }
+    &::before{
+        left: 50%;
+        transform: translateX(-20%) scaleX(-1);
+        animation: into_shadow 2s ease-in forwards;
+    }
+}
+.out{
+    @include snowman();
+    height: 2vw;
+    right: 19%;
+    &::after{
+        background: url(../img/snowman1.svg) no-repeat;
+        animation: out_snowman 2s ease-out forwards,jump 2s linear infinite 2s;
+    }
+    &::before{
+        left: 50%;
+        transform: scaleX(-1);
+        animation: out_shadow 2s ease-out forwards,jump_shadow 2s linear infinite 2s;
+    }
+}
+.snowman{
+    @include snowman();
+    &:nth-child(2){
+        height: 2.6vw;
+        right: 34%;
+        transition: all .3s;
+        &::after{
+            background-image: url(../img/snowman2.svg);
+            transform-origin: 50% 100%;
+            animation: sleep 3s linear infinite;
+        }
+        &::before{
+            left: -70%;
+            transform-origin: 100% 50%;
+            transform: scaleX(-1);
+            animation: sleep_shadow 3s ease-in-out infinite;
+        }
+    }
+    &:nth-child(3){
+        width: $snowman-size*2;
+        height: 6.6vw;
+        right: 38.5%;
+        transition: all .3s;
+        &::after{
+            width: $snowman-size*2;
+            background-image: url(../img/snowman3.svg);
+            transform-origin: 50% 100%;
+            animation: wake 4s linear infinite;
+            transition: all .3s;
+        }
+        &::before{
+            left: 20%;
+            transform: scale(2);
+            animation: wake_shadow 4s ease-in-out infinite;
+            transition: all .3s;
+        }
+    }
+    $jump_time: 1s;
+    &:nth-child(4){
+        height: 2.3vw;
+        right: 45.5%;
+        &::after{
+            background-image: url(../img/snowman4.svg);
+            animation: happy_jump $jump_time ease-in-out infinite;
+        }
+        &::before{
+            animation: happy_jump_shadow $jump_time ease-in-out infinite;
+        }
+    }
+    &:nth-child(5){
+        height: 2.3vw;
+        right: 46%;
+        transform: translateY(70%);
+        z-index: 3;
+        &::after{
+            background-image: url(../img/snowman5.svg);
+            animation: happy_jump $jump_time ease-in-out infinite $jump_time/3;
+        }
+        &::before{
+            animation: happy_jump_shadow $jump_time ease-in-out infinite $jump_time/3;
+        }
+    }
+    &:nth-child(6){
+        height: 2.3vw;
+        right: 48%;
+        &::after{
+            background-image: url(../img/snowman6.svg);
+            animation: happy_jump $jump_time ease-in-out infinite $jump_time*2/3;
+        }
+        &::before{
+            animation: happy_jump_shadow $jump_time ease-in-out infinite $jump_time*2/3;
+        }
+    }
+    &:nth-child(7){
+        height: 2.3vw;
+        right: 55%;
+        &::after{
+            background-image: url(../img/snowman7.svg);
+            transform-origin: 50% 100%;
+            animation: sleep 5s reverse linear infinite;
+        }
+        &::before{
+            left: 20%;
+            animation: sleep_shadow 5s ease-in-out infinite;
+        }
+    }
+    $falling_time: 2s;
+    $alternate_times: 1.5;
+    &:nth-child(8){
+        height: 1.6vw;
+        right: 61%;
+        &::after{
+            background-image: url(../img/snowman8.svg);
+            animation: falling $falling_time linear forwards alternate $alternate_times,sleep 1s linear infinite $falling_time*$alternate_times;
+        }
+        &::before{
+            left: 50%;
+            animation: falling_shadow $falling_time linear forwards alternate $alternate_times,sleep_shadow 1s linear infinite $falling_time*$alternate_times;
+        }
+        .hat{
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: .8vw;
+            height: .8vw;
+            background: url(../img/hat.svg) no-repeat;
+            background-size: contain;
+            z-index: 3;
+            animation: falling_hat $falling_time linear forwards;
+        }
+    }
+    &:nth-child(9){
+        height: 2.6vw;
+        right: 63%;
+        bottom: 13.5%;
+        &::after{
+            background-image: url(../img/snowman9.svg);
+            animation: help $falling_time linear forwards alternate $alternate_times,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times;
+        }
+        &::before{
+            left: 50%;
+            transform: translateX(-80%);
+            animation: help_shadow $falling_time linear forwards alternate $alternate_times,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times;
+        }
+    }
+}
+@mixin sock {
+    position: absolute;
+    right: 19%;
+    bottom: 13.5%;
+    width: 3.125vw;
+    height: 2.6vw;
+    background: url(../img/sock.png) no-repeat;
+    background-size: contain;
+    transition: all .3s;
+    &:hover{
+        cursor: pointer;
+        opacity: .6;
+    }
+}
+.sock_in{
+    @include sock();
+    animation: into_sock 2s ease-in-out,sock_in_shake 2s linear infinite 3s;
+}
+.sock_out{
+    @include sock();
+    animation: out_sock 2s ease-in-out reverse .3s,sock_out_shake 2s linear infinite 3s;
+}

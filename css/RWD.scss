@@ -1,0 +1,1817 @@
+@media screen and (max-width:1400px) and (min-width:1025px){ 
+    .container{
+        .christmas{
+            transform: scale(1.2);
+        }
+        .decorations{
+            transform: scale(1.5);
+            .deco{
+                &:nth-child(1){
+                    right: 32%;
+                }
+                &:nth-child(2){
+                    right: 27%;
+                }
+                &:nth-child(3){
+                    right: 20%;
+                }
+            }
+        }
+        .dog{
+            $dog-size:30vw;
+            width: $dog-size;
+            height: $dog-size;
+            &::before{
+                width: $dog-size;
+                height: $dog-size/8;
+            }
+        }
+        $snowman-size:4vw;
+        $shadow-size:3.2vw;
+        @mixin snowman {
+            width: $snowman-size;
+            &::after{
+                content: '';
+                width: $snowman-size;
+                height: 100%;
+            }
+            &::before{
+                content: '';
+                bottom: -$shadow-size/8;
+                width: $shadow-size;
+                height: $shadow-size/4;
+            }
+        }
+        .in{
+            @include snowman();
+            height: 3.2vw;
+            right: 16%;
+        }
+        .out{
+            @include snowman();
+            height: 3.2vw;
+            right: 19.5%;
+        }
+        .snowman{
+            @include snowman();
+            &:nth-child(2){
+                height: 4vw;
+                left: 55%;
+            }
+            &:nth-child(3){
+                width: $snowman-size*2;
+                left: 44%;
+                height: 10vw;
+                &::after{
+                    width: $snowman-size*2;
+                }
+            }
+            &:nth-child(4){
+                left: 39%;
+                height: 3.2vw;
+            }
+            &:nth-child(5){
+                left: 37%;
+                height: 3.2vw;
+            }
+            &:nth-child(6){
+                left: 35%;
+                height: 3.2vw;
+            }
+            &:nth-child(7){
+                left: 27%;
+                height: 3.2vw;
+            }
+            &:nth-child(8){
+                left: 18%;
+                height: 2.2vw;
+                .hat{
+                    width: 1.2vw;
+                    height: 1.2vw;
+                }
+            }
+            &:nth-child(9){
+                left: 15%;
+                height: 3.5vw;
+            }
+        }
+        @mixin sock {
+            right: 19%;
+            bottom: 13.5%;
+            width: 6vw;
+            height: 4vw;
+            transition: all .3s;
+            &:hover{
+                cursor: pointer;
+                opacity: .6;
+            }
+        }
+        .sock_in,.sock_out{
+            @include sock();
+        }
+    }
+  }
+@media screen and (max-width:1024px) and (min-width:768px) and(orientation: portrait){ 
+    .loading{
+        .christmas{
+            display: block;
+            left: 50%;
+            top: 39%;
+            transform: translateX(-50%) scale(1.5);
+            .fog{
+                animation: loading_text-fog 1s ease-in-out;
+            }
+            @for $text from 1 to 15 {
+                .text#{$text}{
+                    fill: rgba($color: #fff, $alpha: 0);
+                    animation: loading_text 1s ease-in-out forwards;
+                    animation-delay: $text*.1+.8s;
+                }
+            }
+        }
+        @keyframes loading_text-fog{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 100;
+            }
+        }
+        @keyframes loading_text{
+            0%{
+                fill: rgba($color: #fff, $alpha: 0);
+            }
+            100%{
+                fill: rgba($color: #fff, $alpha: 1);
+            }
+        }
+        .decorations{
+            display: none;
+        }
+        .dog{
+            display: none;
+        }
+        $snowman-size:5.5vw;
+        $shadow-size:3.5vw;
+        @mixin snowman {
+            width: $snowman-size;
+            bottom: 11%;
+            &::after{
+                content: '';
+                width: $snowman-size;
+                height: 100%;
+            }
+            &::before{
+                content: '';
+                bottom: -$shadow-size/8;
+                width: $shadow-size;
+                height: $shadow-size/4;
+            }
+        }
+        .in,.out{
+            @include snowman();
+            height: 4.5vw;
+            left: 39%;
+            &::after{
+                animation: laoding_jump 2s linear infinite;
+            }
+            &::before{
+                animation: laoding_jump_shadow 2s linear infinite;
+            }
+        }
+        $snowman1_pos:translateX(0);
+        @keyframes laoding_jump{
+            0%{
+                transform: $snowman1_pos translateY(0) rotate(0);
+            }
+            25%{
+                transform: $snowman1_pos translateY(0) rotate(-10deg);
+            }
+            40%{
+                transform: $snowman1_pos translateY(0)  rotate(-20deg);
+            }
+            50%{
+                transform: $snowman1_pos translateY(-20px) rotate(0);
+            }
+            75%{
+                transform: $snowman1_pos translateY(0) rotate(5deg);
+            }
+            100%{
+                transform: $snowman1_pos translateY(0) rotate(0deg);
+            }
+        }
+        @keyframes laoding_jump_shadow{
+            40%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+            50%{
+                transform: $snowman1_pos scale(-.8,.8);
+                filter: blur(2px);
+            }
+            75%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+        }
+        @keyframes move {
+            0%{
+                transform: translate(100%,0);
+            }
+            50%{
+                transform: translate(50%,-5%);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        .snowmen{
+            width: 100%;
+            height: 100%;
+            animation: move linear 6s;
+            .snowman{
+                @include snowman();
+                &:nth-child(2){
+                    height: 5.5vw;
+                    left: 30%;
+                    &::before{
+                        left: -50%;
+                        transform: scaleX(-1);
+                    }
+                }
+                &:nth-child(3){
+                    width: $snowman-size*2;
+                    left: 17%;
+                    height: 13vw;
+                    &::after{
+                        width: $snowman-size*2;
+                        animation: leader .8s linear infinite;
+                        transform: scaleX(-1);
+                    }
+                    &::before{
+                        left: 50%;
+                        transform: translateX(-50%) scale(2.5);
+                        animation: leader_shadow .8s ease-in-out infinite;
+                    }
+                }
+                @keyframes leader {
+                    0%{
+                        transform: scaleX(-1) translateY(0px);
+                    }
+                    50%{
+                        transform: scaleX(-1) translateY(-30px);
+                    }
+                    100%{
+                        transform: scaleX(-1) translateY(0px);
+                    }
+                }
+                $leader_shadow_pos:translateX(-50%);
+                @keyframes leader_shadow {
+                    0%{
+                        transform: $leader_shadow_pos scale(2.5);
+                    }
+                    50%{
+                        transform: $leader_shadow_pos scale(2);
+                        filter: blur(2px);
+                    }
+                    100%{
+                        transform: $leader_shadow_pos scale(2.5);
+                    }
+                }
+                &:nth-child(4){
+                    left: 55%;
+                    bottom: 13%;
+                    height: 5.2vw;
+                }
+                &:nth-child(5){
+                    left: 53%;
+                    bottom: 13%;
+                    height: 5.2vw;
+                }
+                &:nth-child(6){
+                    left: 49%;
+                    bottom: 13%;
+                    height: 5.2vw;
+                }
+                &:nth-child(7){
+                    left: 63%;
+                    height: 5.2vw;
+                }
+                &:nth-child(8){
+                    right: 17%;
+                    height: 3.5vw;
+                    .hat{
+                        width: 1.6vw;
+                        height: 1.6vw;
+                    }
+                }
+                &:nth-child(9){
+                    right: 21%;
+                    height: 5.2vw;
+                }
+            }
+        }
+        .sock_in,.sock_out{
+            display: none;
+        }
+    }
+    .m-container{
+        margin: 0 auto;
+        // background: url(../img/3.jpg) no-repeat;
+        background-position: center;
+        // background-size: contain;
+        .christmas{
+            display: none;
+        }
+        .decorations{
+            transform: scale(2.5);
+            .deco{
+                &:nth-child(1){
+                    right: 50%;
+                }
+                &:nth-child(2){
+                    right: 43%;
+                }
+                &:nth-child(3){
+                    right: 32%;
+                }
+            }
+        }
+        .dog{
+            $dog-size:58vw;
+            width: $dog-size;
+            height: $dog-size;
+            right: 8%;
+            bottom: 10%;
+            &::before{
+                width: $dog-size;
+                height: $dog-size/8;
+            }
+        }
+        $snowman-size:8vw;
+        $shadow-size:6.4vw;
+        @mixin snowman {
+            width: $snowman-size;
+            bottom: 11%;
+            &::after{
+                content: '';
+                width: $snowman-size;
+                height: 100%;
+            }
+            &::before{
+                content: '';
+                bottom: -$shadow-size/8;
+                width: $shadow-size;
+                height: $shadow-size/4;
+            }
+        }
+        .in{
+            @include snowman();
+            height: 6.4vw;
+            right: 3%;
+        }
+        .out{
+            @include snowman();
+            height: 6.4vw;
+            right: 11%;
+        }
+        $snowman1_pos:translateX(105%);
+        @keyframes jump{
+            0%{
+                transform: $snowman1_pos translateY(0) rotate(0);
+            }
+            25%{
+                transform: $snowman1_pos translateY(0) rotate(-10deg);
+            }
+            40%{
+                transform: $snowman1_pos translateY(0)  rotate(-20deg);
+            }
+            50%{
+                transform: $snowman1_pos translateY(-20px) rotate(0);
+            }
+            75%{
+                transform: $snowman1_pos translateY(0) rotate(5deg);
+            }
+            100%{
+                transform: $snowman1_pos translateY(0) rotate(0deg);
+            }
+        }
+        @keyframes jump_shadow{
+            40%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+            50%{
+                transform: $snowman1_pos scale(-.8,.8);
+                filter: blur(2px);
+            }
+            75%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+        }
+        .snowman{
+            @include snowman();
+            &:nth-child(2){
+                height: 8vw;
+                left: 41%;
+            }
+            &:nth-child(3){
+                width: $snowman-size*2;
+                left: 22%;
+                height: 18vw;
+                &::after{
+                    width: $snowman-size*2;
+                }
+            }
+            &:nth-child(4){
+                right: 18%;
+                bottom: 7.5%;
+                height: 6.4vw;
+            }
+            &:nth-child(5){
+                right: 20%;
+                bottom: 5%;
+                height: 6.4vw;
+            }
+            &:nth-child(6){
+                right: 25%;
+                bottom: 5.5%;
+                height: 6.4vw;
+            }
+            &:nth-child(7){
+                left: 16%;
+                bottom: 10%;
+                height: 6.4vw;
+            }
+            &:nth-child(8){
+                left: 12%;
+                bottom: 5%;
+                height: 4.4vw;
+                .hat{
+                    width: 2.4vw;
+                    height: 2.4vw;
+                }
+            }
+            &:nth-child(9){
+                left: 7%;
+                bottom: 5%;
+                height: 7vw;
+            }
+        }
+        @mixin sock {
+            right: 9%;
+            bottom: 10.5%;
+            width: 12vw;
+            height: 8vw;
+            transition: all .3s;
+            &:hover{
+                cursor: pointer;
+                opacity: .6;
+            }
+        }
+        .sock_in,.sock_out{
+            @include sock();
+        }
+    }
+}
+@media screen and (min-height:551px) and (orientation: landscape){ 
+    .loading{
+        .christmas{
+            display: block;
+            left: 50%;
+            top: 39%;
+            transform: translateX(-50%) scale(1.5);
+            .fog{
+                animation: loading_text-fog 1s ease-in-out;
+            }
+            @for $text from 1 to 15 {
+                .text#{$text}{
+                    fill: rgba($color: #fff, $alpha: 0);
+                    animation: loading_text 1s ease-in-out forwards;
+                    animation-delay: $text*.1+.8s;
+                }
+            }
+        }
+        @keyframes loading_text-fog{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 100;
+            }
+        }
+        @keyframes loading_text{
+            0%{
+                fill: rgba($color: #fff, $alpha: 0);
+            }
+            100%{
+                fill: rgba($color: #fff, $alpha: 1);
+            }
+        }
+        .decorations{
+            display: none;
+        }
+        .dog{
+            display: none;
+        }
+        $snowman-size:5.5vw;
+        $shadow-size:3.5vw;
+        @mixin snowman {
+            width: $snowman-size;
+            bottom: 11%;
+            &::after{
+                content: '';
+                width: $snowman-size;
+                height: 100%;
+            }
+            &::before{
+                content: '';
+                bottom: -$shadow-size/8;
+                width: $shadow-size;
+                height: $shadow-size/4;
+            }
+        }
+        .in,.out{
+            @include snowman();
+            height: 4.5vw;
+            left: 39%;
+            &::after{
+                animation: laoding_jump 2s linear infinite;
+            }
+            &::before{
+                animation: laoding_jump_shadow 2s linear infinite;
+            }
+        }
+        $snowman1_pos:translateX(0);
+        @keyframes laoding_jump{
+            0%{
+                transform: $snowman1_pos translateY(0) rotate(0);
+            }
+            25%{
+                transform: $snowman1_pos translateY(0) rotate(-10deg);
+            }
+            40%{
+                transform: $snowman1_pos translateY(0)  rotate(-20deg);
+            }
+            50%{
+                transform: $snowman1_pos translateY(-20px) rotate(0);
+            }
+            75%{
+                transform: $snowman1_pos translateY(0) rotate(5deg);
+            }
+            100%{
+                transform: $snowman1_pos translateY(0) rotate(0deg);
+            }
+        }
+        @keyframes laoding_jump_shadow{
+            40%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+            50%{
+                transform: $snowman1_pos scale(-.8,.8);
+                filter: blur(2px);
+            }
+            75%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+        }
+        @keyframes move {
+            0%{
+                transform: translate(100%,0);
+            }
+            50%{
+                transform: translate(50%,-5%);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        .snowmen{
+            width: 100%;
+            height: 100%;
+            animation: move linear 6s;
+            .snowman{
+                @include snowman();
+                &:nth-child(2){
+                    height: 5.5vw;
+                    left: 30%;
+                    &::before{
+                        left: -50%;
+                        transform: scaleX(-1);
+                    }
+                }
+                &:nth-child(3){
+                    width: $snowman-size*2;
+                    left: 17%;
+                    height: 13vw;
+                    &::after{
+                        width: $snowman-size*2;
+                        animation: leader .8s linear infinite;
+                        transform: scaleX(-1);
+                    }
+                    &::before{
+                        left: 50%;
+                        transform: translateX(-50%) scale(2.5);
+                        animation: leader_shadow .8s ease-in-out infinite;
+                    }
+                }
+                @keyframes leader {
+                    0%{
+                        transform: scaleX(-1) translateY(0px);
+                    }
+                    50%{
+                        transform: scaleX(-1) translateY(-30px);
+                    }
+                    100%{
+                        transform: scaleX(-1) translateY(0px);
+                    }
+                }
+                $leader_shadow_pos:translateX(-50%);
+                @keyframes leader_shadow {
+                    0%{
+                        transform: $leader_shadow_pos scale(2.5);
+                    }
+                    50%{
+                        transform: $leader_shadow_pos scale(2);
+                        filter: blur(2px);
+                    }
+                    100%{
+                        transform: $leader_shadow_pos scale(2.5);
+                    }
+                }
+                &:nth-child(4){
+                    left: 55%;
+                    bottom: 13%;
+                    height: 5.2vw;
+                }
+                &:nth-child(5){
+                    left: 53%;
+                    bottom: 13%;
+                    height: 5.2vw;
+                }
+                &:nth-child(6){
+                    left: 49%;
+                    bottom: 13%;
+                    height: 5.2vw;
+                }
+                &:nth-child(7){
+                    left: 63%;
+                    height: 5.2vw;
+                }
+                $falling_time: 2s;
+                $alternate_times: 1.5;
+                $delay_time: 4.5s;
+                &:nth-child(8){
+                    right: 17%;
+                    height: 3.5vw;
+                    &::before{
+                        animation: falling_shadow $falling_time linear forwards alternate $alternate_times $delay_time,sleep_shadow 1s linear infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    &:after{
+                        animation: falling $falling_time linear forwards alternate $alternate_times $delay_time,sleep 1s linear infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    .hat{
+                        width: 1.6vw;
+                        height: 1.6vw;
+                        animation-delay: $delay_time;
+                    }
+                }
+                &:nth-child(9){
+                    right: 21%;
+                    height: 5.2vw;
+                    &::before{
+                        animation: help_shadow $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    &:after{
+                        animation: help $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                }
+                @keyframes help{
+                    0%{
+                        transform: translateX(0) rotate(-20deg);
+                    }
+                    25%{
+                        transform: translateX(0) rotate(-10deg);
+                    }
+                    50%{
+                        transform: translateX(10%) rotate(0);
+                    }
+                    100%{
+                        transform-origin: 50% 100%;
+                        transform: translateX(0) rotate(-10deg);
+                    }
+                }
+                $shadow9_pos:-80%;
+                @keyframes help_shadow{
+                    0%{
+                        transform: translateX($shadow9_pos);
+                    }
+                    50%{
+                        transform: translateX(10%+$shadow9_pos);
+                    }
+                    100%{
+                        transform: translateX($shadow9_pos);
+                    }
+                }
+            }
+        }
+        .sock_in,.sock_out{
+            display: none;
+        }
+    }
+    .m-container{
+        .christmas{
+            display: block;
+        }
+        .decorations{
+            transform: scale(1.5);
+            .deco{
+                &:nth-child(1){
+                    right: 38%;
+                }
+                &:nth-child(2){
+                    right: 30%;
+                }
+                &:nth-child(3){
+                    right: 20%;
+                }
+            }
+        }
+        .dog{
+            $dog-size:30vw;
+            width: $dog-size;
+            height: $dog-size;
+            &::before{
+                width: $dog-size;
+                height: $dog-size/8;
+            }
+        }
+        $snowman-size:4vw;
+        $shadow-size:3.2vw;
+        @mixin snowman {
+            width: $snowman-size;
+            bottom: 11%;
+            &::after{
+                content: '';
+                width: $snowman-size;
+                height: 100%;
+            }
+            &::before{
+                content: '';
+                bottom: -$shadow-size/8;
+                width: $shadow-size;
+                height: $shadow-size/4;
+            }
+        }
+        .in{
+            @include snowman();
+            height: 3.2vw;
+            right: 6%;
+        }
+        .out{
+            @include snowman();
+            height: 3.2vw;
+            right: 10%;
+        }
+        .snowman{
+            @include snowman();
+            &:nth-child(2){
+                height: 4vw;
+                left: 66%;
+            }
+            &:nth-child(3){
+                width: $snowman-size*2;
+                left: 55%;
+                height: 10vw;
+                &::after{
+                    width: $snowman-size*2;
+                }
+            }
+            &:nth-child(4){
+                left: 45%;
+                bottom: 13%;
+                height: 3.2vw;
+            }
+            &:nth-child(5){
+                left: 43%;
+                bottom: 13%;
+                height: 3.2vw;
+            }
+            &:nth-child(6){
+                left: 41%;
+                bottom: 13%;
+                height: 3.2vw;
+            }
+            &:nth-child(7){
+                left: 32%;
+                bottom: 11%;
+                height: 3.2vw;
+            }
+            &:nth-child(8){
+                left: 18%;
+                bottom: 11%;
+                height: 2.2vw;
+                .hat{
+                    width: 1.2vw;
+                    height: 1.2vw;
+                }
+            }
+            &:nth-child(9){
+                left: 15%;
+                bottom: 10.5%;
+                height: 3.5vw;
+            }
+        }
+        @mixin sock {
+            right: 9%;
+            bottom: 10.5%;
+            width: 6vw;
+            height: 4vw;
+            transition: all .3s;
+            &:hover{
+                cursor: pointer;
+                opacity: .6;
+            }
+        }
+        .sock_in,.sock_out{
+            @include sock();
+        }
+    }
+}
+@media screen and (max-width:767px) and (orientation: portrait){ 
+    .loading{
+        $text-size:40vw;
+        .christmas{
+            left: 50%;
+            top: 39%;
+            width: $text-size;
+            height: $text-size/2.2;
+            transform: translateX(-50%) scale(1.5);
+            .fog{
+                $fog-size:60vw;
+                width: $fog-size;
+                height: $fog-size/2;
+                animation: loading_text-fog 1s ease-in-out;
+            }
+            @for $text from 1 to 15 {
+                .text#{$text}{
+                    animation: none;
+                    fill: rgba($color: #fff, $alpha: 0);
+                    animation: loading_text 1s ease-in-out forwards;
+                    animation-delay: $text*.1+.8s;
+                }
+            }
+        }
+        @keyframes loading_text-fog{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 100;
+            }
+        }
+        @keyframes loading_text{
+            0%{
+                fill: rgba($color: #fff, $alpha: 0);
+            }
+            100%{
+                fill: rgba($color: #fff, $alpha: 1);
+            }
+        }
+        .decorations{
+            display: none;
+        }
+        .dog{
+            display: none;
+        }
+        $snowman-size:11vw;
+        $shadow-size:7vw;
+        @mixin snowman {
+            width: $snowman-size;
+            bottom: 15%;
+            &::after{
+                content: '';
+                width: $snowman-size;
+                height: 100%;
+            }
+            &::before{
+                content: '';
+                bottom: -$shadow-size/8;
+                width: $shadow-size;
+                height: $shadow-size/4;
+            }
+        }
+        .in,.out{
+            @include snowman();
+            height: 9vw;
+            left: 31%;
+            &::after{
+                animation: s-jump 2s linear infinite;
+            }
+            &::before{
+                animation: s-jump_shadow 2s linear infinite;
+            }
+        }
+        $snowman1_pos:translateX(0);
+        @keyframes s-jump{
+            0%{
+                transform: $snowman1_pos translateY(0) rotate(0);
+            }
+            25%{
+                transform: $snowman1_pos translateY(0) rotate(-10deg);
+            }
+            40%{
+                transform: $snowman1_pos translateY(0)  rotate(-20deg);
+            }
+            50%{
+                transform: $snowman1_pos translateY(-20px) rotate(0);
+            }
+            75%{
+                transform: $snowman1_pos translateY(0) rotate(5deg);
+            }
+            100%{
+                transform: $snowman1_pos translateY(0) rotate(0deg);
+            }
+        }
+        @keyframes s-jump_shadow{
+            40%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+            50%{
+                transform: $snowman1_pos scale(-.8,.8);
+                filter: blur(2px);
+            }
+            75%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+        }
+        @keyframes move {
+            0%{
+                transform: translate(100%,0);
+            }
+            50%{
+                transform: translate(50%,-5%);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        .snowmen{
+            width: 100%;
+            height: 100%;
+            animation: none;
+            animation: move linear 6s;
+            .snowman{
+                @include snowman();
+                &:nth-child(2){
+                    height: 11vw;
+                    left: 21%;
+                    &::before{
+                        left: -50%;
+                        transform: scaleX(-1);
+                    }
+                }
+                &:nth-child(3){
+                    width: $snowman-size*2;
+                    left: 0.5%;
+                    height: 22vw;
+                    &::after{
+                        width: $snowman-size*2;
+                        animation: leader .8s linear infinite;
+                        transform: scaleX(-1);
+                    }
+                    &::before{
+                        left: 50%;
+                        transform: translateX(-50%) scale(2.5);
+                        animation: leader_shadow .8s ease-in-out infinite;
+                    }
+                }
+                @keyframes leader {
+                    0%{
+                        transform: scaleX(-1) translateY(0px);
+                    }
+                    50%{
+                        transform: scaleX(-1) translateY(-30px);
+                    }
+                    100%{
+                        transform: scaleX(-1) translateY(0px);
+                    }
+                }
+                $leader_shadow_pos:translateX(-50%);
+                @keyframes leader_shadow {
+                    0%{
+                        transform: $leader_shadow_pos scale(2.5);
+                    }
+                    50%{
+                        transform: $leader_shadow_pos scale(2);
+                        filter: blur(2px);
+                    }
+                    100%{
+                        transform: $leader_shadow_pos scale(2.5);
+                    }
+                }
+                &:nth-child(4){
+                    left: 53%;
+                    bottom: 16%;
+                    height: 10.5vw;
+                }
+                &:nth-child(5){
+                    left: 50%;
+                    bottom: 17%;
+                    height: 10vw;
+                }
+                &:nth-child(6){
+                    left: 43%;
+                    bottom: 16%;
+                    height: 10vw;
+                }
+                &:nth-child(7){
+                    left: 65%;
+                    height: 10.5vw;
+                }
+                $falling_time: 2s;
+                $alternate_times: 1.5;
+                $delay_time: 4.5s;
+                &:nth-child(8){
+                    right: 3%;
+                    height: 7vw;
+                    &::before{
+                        animation: falling_shadow $falling_time linear forwards alternate $alternate_times $delay_time,sleep_shadow 1s linear infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    &:after{
+                        animation: falling $falling_time linear forwards alternate $alternate_times $delay_time,sleep 1s linear infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    .hat{
+                        width: 3.2vw;
+                        height: 3.2vw;
+                        animation-delay: $delay_time;
+                    }
+                }
+                &:nth-child(9){
+                    right: 10%;
+                    height: 10.5vw;
+                    &::before{
+                        animation: help_shadow $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    &:after{
+                        animation: help $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    @keyframes help{
+                        0%{
+                            transform: translateX(0) rotate(-20deg);
+                        }
+                        25%{
+                            transform: translateX(0) rotate(-10deg);
+                        }
+                        50%{
+                            transform: translateX(10%) rotate(0);
+                        }
+                        100%{
+                            transform-origin: 50% 100%;
+                            transform: translateX(0) rotate(-10deg);
+                        }
+                    }
+                    $shadow9_pos:-80%;
+                    @keyframes help_shadow{
+                        0%{
+                            transform: translateX($shadow9_pos);
+                        }
+                        50%{
+                            transform: translateX(10%+$shadow9_pos);
+                        }
+                        100%{
+                            transform: translateX($shadow9_pos);
+                        }
+                    }
+                }
+            }
+        }
+        .sock_in,.sock_out{
+            display: none;
+        }
+    }
+    .s-container{
+        .christmas{
+            display: none;
+        }
+        .decorations{
+            transform: scale(2.5);
+            .deco{
+                &:nth-child(1){
+                    right: 48%;
+                }
+                &:nth-child(2){
+                    right: 41%;
+                }
+                &:nth-child(3){
+                    right: 31%;
+                }
+            }
+        }
+        $deco-end:translateY(-5px);
+        .fall,.click_fall{
+            transform: $deco-end;
+            animation: fall .5s ease-in-out forwards;
+            @for $delay from 1 to 4 {
+                &:nth-child(#{$delay}){
+                    animation-delay: 0;
+                }
+            }
+        }
+        @keyframes fall {
+            0%{
+                transform: translateY(-100%);
+            }
+            50%{
+                transform: translateY(0);
+            }
+            100%{
+                transform: $deco-end;
+            }
+        }
+        @keyframes click_fall {
+            0%{
+                transform: translateY(-100%);
+            }
+            50%{
+                transform: translateY(0);
+            }
+            100%{
+                transform: $deco-end;
+            }
+        }
+        @keyframes shake {
+            0%{
+                transform: $deco-end rotate(0deg);
+            }
+            25%{
+                transform: $deco-end rotate(-5deg);
+            }
+            50%{
+                transform: $deco-end rotate(0);
+            }
+            75%{
+                transform: $deco-end rotate(5deg);
+            }
+            100%{
+                transform: $deco-end rotate(0deg);
+            }
+        }
+        .dog{
+            $dog-size:50vw;
+            width: $dog-size;
+            height: $dog-size;
+            right: 13%;
+            bottom: 22%;
+            &::before{
+                width: $dog-size;
+                height: $dog-size/8;
+            }
+        }
+        $snowman-size:10vw;
+        $shadow-size:8vw;
+        @mixin snowman {
+            width: $snowman-size;
+            bottom: 22%;
+            &::after{
+                content: '';
+                width: $snowman-size;
+                height: 100%;
+            }
+            &::before{
+                content: '';
+                bottom: -$shadow-size/8;
+                width: $shadow-size;
+                height: $shadow-size/4;
+            }
+        }
+        .in{
+            @include snowman();
+            height: 8vw;
+            right: 6%;
+        }
+        .out{
+            @include snowman();
+            height: 8vw;
+            right: 16%;
+        }
+        $snowman1_pos:translateX(105%);
+        @keyframes jump{
+            0%{
+                transform: $snowman1_pos translateY(0) rotate(0);
+            }
+            25%{
+                transform: $snowman1_pos translateY(0) rotate(-10deg);
+            }
+            40%{
+                transform: $snowman1_pos translateY(0)  rotate(-20deg);
+            }
+            50%{
+                transform: $snowman1_pos translateY(-20px) rotate(0);
+            }
+            75%{
+                transform: $snowman1_pos translateY(0) rotate(5deg);
+            }
+            100%{
+                transform: $snowman1_pos translateY(0) rotate(0deg);
+            }
+        }
+        @keyframes jump_shadow{
+            40%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+            50%{
+                transform: $snowman1_pos scale(-.8,.8);
+                filter: blur(2px);
+            }
+            75%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+        }
+        .snowman{
+            @include snowman();
+            &:nth-child(2){
+                height: 10vw;
+                left: 41%;
+            }
+            &:nth-child(3){
+                width: $snowman-size*2;
+                left: 15%;
+                height: 22vw;
+                &::after{
+                    width: $snowman-size*2;
+                }
+            }
+            &:nth-child(4){
+                right: 13%;
+                bottom: 9%;
+                height: 8vw;
+            }
+            &:nth-child(5){
+                right: 16%;
+                bottom: 9%;
+                height: 8vw;
+            }
+            &:nth-child(6){
+                right: 23%;
+                bottom: 9%;
+                height: 8vw;
+            }
+            &:nth-child(7){
+                left: 34%;
+                bottom: 11%;
+                height: 8vw;
+            }
+            &:nth-child(8){
+                left: 19%;
+                bottom: 4%;
+                height: 6vw;
+                .hat{
+                    width: 3.2vw;
+                    height: 3.2vw;
+                }
+            }
+            &:nth-child(9){
+                left: 12%;
+                bottom: 3.5%;
+                height: 10vw;
+            }
+            @keyframes help{
+                0%{
+                    transform: translateX(-100%) rotate(-20deg);
+                }
+                25%{
+                    transform: translateX(-55%) rotate(-10deg);
+                }
+                50%{
+                    transform: translateX(10%) rotate(0);
+                }
+                100%{
+                    transform-origin: 50% 100%;
+                    transform: translateX(0) rotate(-10deg);
+                }
+            }
+            $shadow9_pos:-80%;
+            @keyframes help_shadow{
+                0%{
+                    transform: translateX(-150%+$shadow9_pos);
+                }
+                25%{
+                    transform: translateX(-80%+$shadow9_pos);
+                }
+                50%{
+                    transform: translateX(10%+$shadow9_pos);
+                }
+                100%{
+                    transform: translateX(-10%+$shadow9_pos);
+                }
+            }
+        }
+        @mixin sock {
+            right: 13%;
+            bottom: 21.6%;
+            width: 15vw;
+            height: 10vw;
+            transition: all .3s;
+            &:hover{
+                cursor: pointer;
+                opacity: .6;
+            }
+        }
+        .sock_in,.sock_out{
+            @include sock();
+        }
+    }
+}
+@media screen and (max-height:550px) and (orientation: landscape){ 
+    .loading{
+        $text-size:25vw;
+        .christmas{
+            left: 50%;
+            top: 25%;
+            width: $text-size;
+            height: $text-size/2.2;
+            transform: translateX(-50%) scale(1.5);
+            .fog{
+                $fog-size:40vw;
+                width: $fog-size;
+                height: $fog-size/2;
+                animation: loading_text-fog 1s ease-in-out;
+            }
+            @for $text from 1 to 15 {
+                .text#{$text}{
+                    animation: none;
+                    fill: rgba($color: #fff, $alpha: 0);
+                    animation: loading_text 1s ease-in-out forwards;
+                    animation-delay: $text*.1+.8s;
+                }
+            }
+        }
+        @keyframes loading_text-fog{
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 100;
+            }
+        }
+        @keyframes loading_text{
+            0%{
+                fill: rgba($color: #fff, $alpha: 0);
+            }
+            100%{
+                fill: rgba($color: #fff, $alpha: 1);
+            }
+        }
+        .decorations{
+            display: none;
+        }
+        .dog{
+            display: none;
+        }
+        $snowman-size:8vw;
+        $shadow-size:5vw;
+        @mixin snowman {
+            width: $snowman-size;
+            bottom: 13%;
+            &::after{
+                content: '';
+                width: $snowman-size;
+                height: 100%;
+            }
+            &::before{
+                content: '';
+                bottom: -$shadow-size/8;
+                width: $shadow-size;
+                height: $shadow-size/4;
+            }
+        }
+        .in,.out{
+            @include snowman();
+            height: 6vw;
+            left: 31%;
+            &::after{
+                animation: s-jump 2s linear infinite;
+            }
+            &::before{
+                animation: s-jump_shadow 2s linear infinite;
+            }
+        }
+        $snowman1_pos:translateX(0);
+        @keyframes s-jump{
+            0%{
+                transform: $snowman1_pos translateY(0) rotate(0);
+            }
+            25%{
+                transform: $snowman1_pos translateY(0) rotate(-10deg);
+            }
+            40%{
+                transform: $snowman1_pos translateY(0)  rotate(-20deg);
+            }
+            50%{
+                transform: $snowman1_pos translateY(-20px) rotate(0);
+            }
+            75%{
+                transform: $snowman1_pos translateY(0) rotate(5deg);
+            }
+            100%{
+                transform: $snowman1_pos translateY(0) rotate(0deg);
+            }
+        }
+        @keyframes s-jump_shadow{
+            40%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+            50%{
+                transform: $snowman1_pos scale(-.8,.8);
+                filter: blur(2px);
+            }
+            75%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+        }
+        @keyframes move {
+            0%{
+                transform: translate(100%,0);
+            }
+            50%{
+                transform: translate(50%,-5%);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        .snowmen{
+            width: 100%;
+            height: 100%;
+            animation: none;
+            animation: move linear 6s;
+            .snowman{
+                @include snowman();
+                &:nth-child(2){
+                    height: 8vw;
+                    left: 21%;
+                    &::before{
+                        left: -50%;
+                        transform: scaleX(-1);
+                    }
+                }
+                &:nth-child(3){
+                    width: $snowman-size*2;
+                    left: 0.5%;
+                    height: 18vw;
+                    &::after{
+                        width: $snowman-size*2;
+                        animation: leader .8s linear infinite;
+                        transform: scaleX(-1);
+                    }
+                    &::before{
+                        left: 50%;
+                        transform: translateX(-50%) scale(2.5);
+                        animation: leader_shadow .8s ease-in-out infinite;
+                    }
+                }
+                @keyframes leader {
+                    0%{
+                        transform: scaleX(-1) translateY(0px);
+                    }
+                    50%{
+                        transform: scaleX(-1) translateY(-30px);
+                    }
+                    100%{
+                        transform: scaleX(-1) translateY(0px);
+                    }
+                }
+                $leader_shadow_pos:translateX(-50%);
+                @keyframes leader_shadow {
+                    0%{
+                        transform: $leader_shadow_pos scale(2.5);
+                    }
+                    50%{
+                        transform: $leader_shadow_pos scale(2);
+                        filter: blur(2px);
+                    }
+                    100%{
+                        transform: $leader_shadow_pos scale(2.5);
+                    }
+                }
+                &:nth-child(4){
+                    left: 53%;
+                    bottom: 16%;
+                    height: 6vw;
+                }
+                &:nth-child(5){
+                    left: 50%;
+                    bottom: 17%;
+                    height: 6vw;
+                }
+                &:nth-child(6){
+                    left: 43%;
+                    bottom: 16%;
+                    height: 6vw;
+                }
+                &:nth-child(7){
+                    left: 65%;
+                    height: 6vw;
+                }
+                $falling_time: 2s;
+                $alternate_times: 1.5;
+                $delay_time: 4.5s;
+                &:nth-child(8){
+                    right: 3%;
+                    height: 4vw;
+                    &::before{
+                        animation: falling_shadow $falling_time linear forwards alternate $alternate_times $delay_time,sleep_shadow 1s linear infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    &:after{
+                        animation: falling $falling_time linear forwards alternate $alternate_times $delay_time,sleep 1s linear infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    .hat{
+                        width: 2.2vw;
+                        height: 2.2vw;
+                        animation-delay: $delay_time;
+                    }
+                }
+                &:nth-child(9){
+                    right: 10%;
+                    height: 7vw;
+                    &::before{
+                        animation: help_shadow $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    &:after{
+                        animation: help $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                    }
+                    @keyframes help{
+                        0%{
+                            transform: translateX(0) rotate(-20deg);
+                        }
+                        25%{
+                            transform: translateX(0) rotate(-10deg);
+                        }
+                        50%{
+                            transform: translateX(10%) rotate(0);
+                        }
+                        100%{
+                            transform-origin: 50% 100%;
+                            transform: translateX(0) rotate(-10deg);
+                        }
+                    }
+                    $shadow9_pos:-80%;
+                    @keyframes help_shadow{
+                        0%{
+                            transform: translateX($shadow9_pos);
+                        }
+                        50%{
+                            transform: translateX(10%+$shadow9_pos);
+                        }
+                        100%{
+                            transform: translateX($shadow9_pos);
+                        }
+                    }
+                }
+            }
+        }
+        .sock_in,.sock_out{
+            display: none;
+        }
+    }
+    .s-container{
+        $text-size:33vw;
+        .christmas{
+            left: 11%;
+            top: 17%;
+            width: $text-size;
+            height: $text-size/2.2;
+            .fog{
+                $fog-size:50vw;
+                width: $fog-size;
+                height: $fog-size/2;
+            }
+        }
+        .decorations{
+            transform: scale(1);
+            .deco{
+                &:nth-child(1){
+                    right: 18%;
+                }
+                &:nth-child(2){
+                    right: 13%;
+                }
+                &:nth-child(3){
+                    right: 6%;
+                }
+            }
+        }
+        $deco-end:translateY(-20px);
+        .fall,.click_fall{
+            transform: $deco-end;
+            animation: fall .5s ease-in-out forwards;
+            @for $delay from 1 to 4 {
+                &:nth-child(#{$delay}){
+                    animation-delay: 0;
+                }
+            }
+        }
+        @keyframes fall {
+            0%{
+                transform: translateY(-100%);
+            }
+            50%{
+                transform: translateY(0);
+            }
+            100%{
+                transform: $deco-end;
+            }
+        }
+        @keyframes click_fall {
+            0%{
+                transform: translateY(-100%);
+            }
+            50%{
+                transform: translateY(0);
+            }
+            100%{
+                transform: $deco-end;
+            }
+        }
+        @keyframes shake {
+            0%{
+                transform: $deco-end rotate(0deg);
+            }
+            25%{
+                transform: $deco-end rotate(-5deg);
+            }
+            50%{
+                transform: $deco-end rotate(0);
+            }
+            75%{
+                transform: $deco-end rotate(5deg);
+            }
+            100%{
+                transform: $deco-end rotate(0deg);
+            }
+        }
+        .dog{
+            $dog-size:25vw;
+            width: $dog-size;
+            height: $dog-size;
+            right: 13%;
+            bottom: 13%;
+            &::before{
+                width: $dog-size;
+                height: $dog-size/8;
+            }
+        }
+        $snowman-size:4vw;
+        $shadow-size:3.2vw;
+        @mixin snowman {
+            width: $snowman-size;
+            bottom: 14%;
+            &::after{
+                content: '';
+                width: $snowman-size;
+                height: 100%;
+                // animation: none;
+            }
+            &::before{
+                content: '';
+                bottom: -$shadow-size/8;
+                width: $shadow-size;
+                height: $shadow-size/4;
+                // animation: none;
+            }
+        }
+        .in{
+            @include snowman();
+            height: 3.2vw;
+            right: 13%;
+        }
+        .out{
+            @include snowman();
+            height: 3.2vw;
+            right: 16%;
+        }
+        $snowman1_pos:translateX(105%);
+        @keyframes jump{
+            0%{
+                transform: $snowman1_pos translateY(0) rotate(0);
+            }
+            25%{
+                transform: $snowman1_pos translateY(0) rotate(-10deg);
+            }
+            40%{
+                transform: $snowman1_pos translateY(0)  rotate(-20deg);
+            }
+            50%{
+                transform: $snowman1_pos translateY(-20px) rotate(0);
+            }
+            75%{
+                transform: $snowman1_pos translateY(0) rotate(5deg);
+            }
+            100%{
+                transform: $snowman1_pos translateY(0) rotate(0deg);
+            }
+        }
+        @keyframes jump_shadow{
+            40%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+            50%{
+                transform: $snowman1_pos scale(-.8,.8);
+                filter: blur(2px);
+            }
+            75%{
+                transform: $snowman1_pos scale(-1,1);
+            }
+        }
+        .snowman{
+            @include snowman();
+            &:nth-child(2){
+                height: 3.5vw;
+                left: 65%;
+            }
+            &:nth-child(3){
+                width: $snowman-size*2;
+                left: 54%;
+                height: 10vw;
+                &::after{
+                    width: $snowman-size*2;
+                }
+            }
+            &:nth-child(4){
+                left: 48%;
+                height: 3.5vw;
+            }
+            &:nth-child(5){
+                left: 46%;
+                height: 3.5vw;
+            }
+            &:nth-child(6){
+                left: 44%;
+                height: 3.5vw;
+            }
+            &:nth-child(7){
+                left: 34%;
+                height: 3.5vw;
+            }
+            &:nth-child(8){
+                left: 24%;
+                height: 2.6vw;
+                &::before{
+                    left: 60%;
+                    bottom: -20%;
+                }
+                .hat{
+                    width: 1.2vw;
+                    height: 1.2vw;
+                }
+            }
+            &:nth-child(9){
+                left: 20%;
+                height: 5vw;
+                bottom: 13%;
+            }
+            @keyframes help{
+                0%{
+                    transform: translateX(-100%) rotate(-20deg);
+                }
+                25%{
+                    transform: translateX(-55%) rotate(-10deg);
+                }
+                50%{
+                    transform: translateX(10%) rotate(0);
+                }
+                100%{
+                    transform-origin: 50% 100%;
+                    transform: translateX(0) rotate(-10deg);
+                }
+            }
+            $shadow9_pos:-80%;
+            @keyframes help_shadow{
+                0%{
+                    transform: translateX(-150%+$shadow9_pos);
+                }
+                25%{
+                    transform: translateX(-80%+$shadow9_pos);
+                }
+                50%{
+                    transform: translateX(10%+$shadow9_pos);
+                }
+                100%{
+                    transform: translateX(-10%+$shadow9_pos);
+                }
+            }
+        }
+        @mixin sock {
+            right: 13%;
+            bottom: 13%;
+            width: 9vw;
+            height: 5vw;
+            transition: all .3s;
+            &:hover{
+                cursor: pointer;
+                opacity: .6;
+            }
+        }
+        .sock_in,.sock_out{
+            @include sock();
+        }
+    }
+}
