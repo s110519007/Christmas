@@ -30,7 +30,7 @@ $shadow-size:2vw;
     height: 2vw;
     right: 16.5%;
     &::after{
-        background-image: url(../img/snowman1.svg);
+        background-image: url(../img/snowman1.png);
         animation: into_snowman 2s ease-in forwards;
     }
     &::before{
@@ -44,7 +44,7 @@ $shadow-size:2vw;
     height: 2vw;
     right: 19%;
     &::after{
-        background: url(../img/snowman1.svg) no-repeat;
+        background: url(../img/snowman1.png) no-repeat;
         animation: out_snowman 2s ease-out forwards,jump 2s linear infinite 2s;
     }
     &::before{
@@ -60,7 +60,7 @@ $shadow-size:2vw;
         right: 34%;
         transition: all .3s;
         &::after{
-            background-image: url(../img/snowman2.svg);
+            background-image: url(../img/snowman2.png);
             transform-origin: 50% 100%;
             animation: sleep 3s linear infinite;
         }
@@ -78,7 +78,7 @@ $shadow-size:2vw;
         transition: all .3s;
         &::after{
             width: $snowman-size*2;
-            background-image: url(../img/snowman3.svg);
+            background-image: url(../img/snowman3.png);
             transform-origin: 50% 100%;
             animation: wake 4s linear infinite;
             transition: all .3s;
@@ -95,7 +95,7 @@ $shadow-size:2vw;
         height: 2.3vw;
         right: 45.5%;
         &::after{
-            background-image: url(../img/snowman4.svg);
+            background-image: url(../img/snowman4.png);
             animation: happy_jump $jump_time ease-in-out infinite;
         }
         &::before{
@@ -108,7 +108,7 @@ $shadow-size:2vw;
         transform: translateY(70%);
         z-index: 3;
         &::after{
-            background-image: url(../img/snowman5.svg);
+            background-image: url(../img/snowman5.png);
             animation: happy_jump $jump_time ease-in-out infinite $jump_time/3;
         }
         &::before{
@@ -119,7 +119,7 @@ $shadow-size:2vw;
         height: 2.3vw;
         right: 48%;
         &::after{
-            background-image: url(../img/snowman6.svg);
+            background-image: url(../img/snowman6.png);
             animation: happy_jump $jump_time ease-in-out infinite $jump_time*2/3;
         }
         &::before{
@@ -130,7 +130,7 @@ $shadow-size:2vw;
         height: 2.3vw;
         right: 55%;
         &::after{
-            background-image: url(../img/snowman7.svg);
+            background-image: url(../img/snowman7.png);
             transform-origin: 50% 100%;
             animation: sleep 5s reverse linear infinite;
         }
@@ -145,7 +145,7 @@ $shadow-size:2vw;
         height: 1.6vw;
         right: 61%;
         &::after{
-            background-image: url(../img/snowman8.svg);
+            background-image: url(../img/snowman8.png);
             animation: falling $falling_time linear forwards alternate $alternate_times,sleep 1s linear infinite $falling_time*$alternate_times;
         }
         &::before{
@@ -158,7 +158,7 @@ $shadow-size:2vw;
             left: -10%;
             width: .8vw;
             height: .8vw;
-            background: url(../img/hat.svg) no-repeat;
+            background: url(../img/hat.png) no-repeat;
             background-size: contain;
             z-index: 3;
             animation: falling_hat $falling_time linear forwards;
@@ -169,7 +169,7 @@ $shadow-size:2vw;
         right: 63%;
         bottom: 13.5%;
         &::after{
-            background-image: url(../img/snowman9.svg);
+            background-image: url(../img/snowman9.png);
             animation: help $falling_time linear forwards alternate $alternate_times,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times;
         }
         &::before{
