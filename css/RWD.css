@@ -2894,25 +2894,25 @@
   .s-container .christmas {
     left: 11%;
     top: 17%;
-    width: 33vw;
-    height: 15vw;
+    width: 25vw;
+    height: 11.36364vw;
   }
   .s-container .christmas .fog {
-    width: 50vw;
-    height: 25vw;
+    width: 40vw;
+    height: 20vw;
   }
   .s-container .decorations {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
   .s-container .decorations .deco:nth-child(1) {
-    right: 18%;
+    left: 40%;
   }
   .s-container .decorations .deco:nth-child(2) {
-    right: 13%;
+    left: 47%;
   }
   .s-container .decorations .deco:nth-child(3) {
-    right: 6%;
+    left: 54%;
   }
   .s-container .fall, .s-container .click_fall {
     -webkit-transform: translateY(-20px);

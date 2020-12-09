@@ -1573,14 +1573,14 @@
         }
     }
     .s-container{
-        $text-size:33vw;
+        $text-size:25vw;
         .christmas{
             left: 11%;
             top: 17%;
             width: $text-size;
             height: $text-size/2.2;
             .fog{
-                $fog-size:50vw;
+                $fog-size:40vw;
                 width: $fog-size;
                 height: $fog-size/2;
             }
@@ -1589,13 +1589,13 @@
             transform: scale(1);
             .deco{
                 &:nth-child(1){
-                    right: 18%;
+                    left: 40%;
                 }
                 &:nth-child(2){
-                    right: 13%;
+                    left: 47%;
                 }
                 &:nth-child(3){
-                    right: 6%;
+                    left: 54%;
                 }
             }
         }
