@@ -1211,14 +1211,14 @@
     height: 5.2vw;
   }
   .loading .snowmen .snowman:nth-child(9)::before {
-    -webkit-animation: help_shadow 2s linear forwards alternate 1.5 4.5s, keep_helping_shadow 1s linear alternate infinite 7.5s;
-            animation: help_shadow 2s linear forwards alternate 1.5 4.5s, keep_helping_shadow 1s linear alternate infinite 7.5s;
+    -webkit-animation: m-help_shadow 2s linear forwards alternate 1.5 4.5s, keep_helping_shadow 1s linear alternate infinite 7.5s;
+            animation: m-help_shadow 2s linear forwards alternate 1.5 4.5s, keep_helping_shadow 1s linear alternate infinite 7.5s;
   }
   .loading .snowmen .snowman:nth-child(9):after {
-    -webkit-animation: help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
-            animation: help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
+    -webkit-animation: m-help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
+            animation: m-help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
   }
-  @-webkit-keyframes help {
+  @-webkit-keyframes m-help {
     0% {
       -webkit-transform: translateX(0) rotate(-20deg);
               transform: translateX(0) rotate(-20deg);
@@ -1238,7 +1238,7 @@
               transform: translateX(0) rotate(-10deg);
     }
   }
-  @keyframes help {
+  @keyframes m-help {
     0% {
       -webkit-transform: translateX(0) rotate(-20deg);
               transform: translateX(0) rotate(-20deg);
@@ -1258,7 +1258,7 @@
               transform: translateX(0) rotate(-10deg);
     }
   }
-  @-webkit-keyframes help_shadow {
+  @-webkit-keyframes m-help_shadow {
     0% {
       -webkit-transform: translateX(-80%);
               transform: translateX(-80%);
@@ -1272,7 +1272,7 @@
               transform: translateX(-80%);
     }
   }
-  @keyframes help_shadow {
+  @keyframes m-help_shadow {
     0% {
       -webkit-transform: translateX(-80%);
               transform: translateX(-80%);
@@ -1891,14 +1891,14 @@
     height: 10.5vw;
   }
   .loading .snowmen .snowman:nth-child(9)::before {
-    -webkit-animation: help_shadow 2s linear forwards alternate 1.5 4.5s, keep_helping_shadow 1s linear alternate infinite 7.5s;
-            animation: help_shadow 2s linear forwards alternate 1.5 4.5s, keep_helping_shadow 1s linear alternate infinite 7.5s;
+    -webkit-animation: s-help_shadow 2s linear forwards alternate 1.5 4.5s, keep_helping_shadow 1s linear alternate infinite 7.5s;
+            animation: s-help_shadow 2s linear forwards alternate 1.5 4.5s, keep_helping_shadow 1s linear alternate infinite 7.5s;
   }
   .loading .snowmen .snowman:nth-child(9):after {
-    -webkit-animation: help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
-            animation: help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
+    -webkit-animation: s-help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
+            animation: s-help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
   }
-  @-webkit-keyframes help {
+  @-webkit-keyframes s-help {
     0% {
       -webkit-transform: translateX(0) rotate(-20deg);
               transform: translateX(0) rotate(-20deg);
@@ -1918,7 +1918,7 @@
               transform: translateX(0) rotate(-10deg);
     }
   }
-  @keyframes help {
+  @keyframes s-help {
     0% {
       -webkit-transform: translateX(0) rotate(-20deg);
               transform: translateX(0) rotate(-20deg);
@@ -1938,7 +1938,7 @@
               transform: translateX(0) rotate(-10deg);
     }
   }
-  @-webkit-keyframes help_shadow {
+  @-webkit-keyframes s-help_shadow {
     0% {
       -webkit-transform: translateX(-80%);
               transform: translateX(-80%);
@@ -1952,7 +1952,7 @@
               transform: translateX(-80%);
     }
   }
-  @keyframes help_shadow {
+  @keyframes s-help_shadow {
     0% {
       -webkit-transform: translateX(-80%);
               transform: translateX(-80%);
@@ -2292,7 +2292,7 @@
     bottom: 3.5%;
     height: 10vw;
   }
-  @keyframes help {
+  @-webkit-keyframes l-help {
     0% {
       -webkit-transform: translateX(-100%) rotate(-20deg);
               transform: translateX(-100%) rotate(-20deg);
@@ -2310,6 +2310,44 @@
               transform-origin: 50% 100%;
       -webkit-transform: translateX(0) rotate(-10deg);
               transform: translateX(0) rotate(-10deg);
+    }
+  }
+  @keyframes l-help {
+    0% {
+      -webkit-transform: translateX(-100%) rotate(-20deg);
+              transform: translateX(-100%) rotate(-20deg);
+    }
+    25% {
+      -webkit-transform: translateX(-55%) rotate(-10deg);
+              transform: translateX(-55%) rotate(-10deg);
+    }
+    50% {
+      -webkit-transform: translateX(10%) rotate(0);
+              transform: translateX(10%) rotate(0);
+    }
+    100% {
+      -webkit-transform-origin: 50% 100%;
+              transform-origin: 50% 100%;
+      -webkit-transform: translateX(0) rotate(-10deg);
+              transform: translateX(0) rotate(-10deg);
+    }
+  }
+  @-webkit-keyframes help_shadow {
+    0% {
+      -webkit-transform: translateX(-230%);
+              transform: translateX(-230%);
+    }
+    25% {
+      -webkit-transform: translateX(-160%);
+              transform: translateX(-160%);
+    }
+    50% {
+      -webkit-transform: translateX(-70%);
+              transform: translateX(-70%);
+    }
+    100% {
+      -webkit-transform: translateX(-90%);
+              transform: translateX(-90%);
     }
   }
   @keyframes help_shadow {
@@ -2817,10 +2855,10 @@
             animation: help_shadow 2s linear forwards alternate 1.5 4.5s, keep_helping_shadow 1s linear alternate infinite 7.5s;
   }
   .loading .snowmen .snowman:nth-child(9):after {
-    -webkit-animation: help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
-            animation: help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
+    -webkit-animation: s-help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
+            animation: s-help 2s linear forwards alternate 1.5 4.5s, keep_helping 1s linear alternate infinite 7.5s;
   }
-  @-webkit-keyframes help {
+  @-webkit-keyframes s-help {
     0% {
       -webkit-transform: translateX(0) rotate(-20deg);
               transform: translateX(0) rotate(-20deg);
@@ -2840,7 +2878,7 @@
               transform: translateX(0) rotate(-10deg);
     }
   }
-  @keyframes help {
+  @keyframes s-help {
     0% {
       -webkit-transform: translateX(0) rotate(-20deg);
               transform: translateX(0) rotate(-20deg);
@@ -3219,6 +3257,26 @@
     left: 20%;
     height: 5vw;
     bottom: 13%;
+  }
+  @-webkit-keyframes help {
+    0% {
+      -webkit-transform: translateX(-100%) rotate(-20deg);
+              transform: translateX(-100%) rotate(-20deg);
+    }
+    25% {
+      -webkit-transform: translateX(-55%) rotate(-10deg);
+              transform: translateX(-55%) rotate(-10deg);
+    }
+    50% {
+      -webkit-transform: translateX(10%) rotate(0);
+              transform: translateX(10%) rotate(0);
+    }
+    100% {
+      -webkit-transform-origin: 50% 100%;
+              transform-origin: 50% 100%;
+      -webkit-transform: translateX(0) rotate(-10deg);
+              transform: translateX(0) rotate(-10deg);
+    }
   }
   @keyframes help {
     0% {

@@ -467,7 +467,7 @@ $shadow3_pos: 20% 50%;
         transform: translate(-400%,250%) rotate(-120deg);
     }
 }
-@keyframes help{
+@keyframes l-help{
     0%{
         transform: translateX(-100%) rotate(-20deg);
     }
@@ -507,6 +507,190 @@ $shadow9_pos:-80%;
     }
 }
 @keyframes keep_helping_shadow{
+    0%{
+        transform: translateX(10%+$shadow9_pos);
+    }
+    100%{
+        transform: translateX(-10%+$shadow9_pos);
+    }
+}
+// 點擊切換動畫
+// snowman8
+@keyframes click_falling{
+    0%{
+        transform: translateX(100%) rotate(90deg);
+    }
+    12%{
+        transform: translateX(80%) rotate(80deg);
+    }
+    25%{
+        transform: translateX(50%) rotate(90deg);
+    }
+    37%{
+        transform: translateX(25%) rotate(45deg);
+    }
+    50%{
+        transform: translateX(0) rotate(0deg);
+    }
+    60%{
+        transform: translateX(0) rotate(0deg);
+    }
+    75%{
+        transform: translateX(-10%) rotate(45deg);
+    }
+    100%{
+        transform: translateX(-10%) rotate(90deg);
+    }
+}
+@keyframes click_falling_shadow{
+    0%{
+        transform: translate(90%,50%) scaleX(-1);
+    }
+    50%{
+        transform: translate(0,0) scaleX(-1);
+    }
+    60%{
+        transform: translate(0,0) scaleX(-1);
+    }
+    100%{
+        transform: translate(-50%,50%) scaleX(-1);
+    }
+}
+@keyframes click_falling_hat{
+    0%{
+        transform: translate(550%,-30%) rotate(30deg);
+    }
+    12%{
+        transform: translate(450%,-30%) rotate(20deg);
+    }
+    25%{
+        transform: translate(400%,-30%) rotate(30deg);
+    }
+    37%{
+        transform: translate(120%,-80%) rotate(0deg);
+    }
+    50%{
+        transform: translateX(0) rotate(-10deg);
+    }
+    55%{
+        transform: translate(-100%,50%) rotate(-10deg);
+    }
+    60%{
+        transform: translate(-150%,150%) rotate(-30deg);
+    }
+    80%{
+        transform: translate(-400%,250%) rotate(-120deg);
+    }
+    100%{
+        transform: translate(-400%,250%) rotate(-120deg);
+    }
+}
+@keyframes click_help{
+    0%{
+        transform: translateX(-100%) rotate(-20deg);
+    }
+    25%{
+        transform: translateX(-55%) rotate(-10deg);
+    }
+    50%{
+        transform: translateX(10%) rotate(0);
+    }
+    100%{
+        transform-origin: 50% 100%;
+        transform: translateX(0) rotate(-10deg);
+    }
+}
+$shadow9_pos:-80%;
+@keyframes click_help_shadow{
+    0%{
+        transform: translateX(-150%+$shadow9_pos);
+    }
+    25%{
+        transform: translateX(-80%+$shadow9_pos);
+    }
+    50%{
+        transform: translateX(10%+$shadow9_pos);
+    }
+    100%{
+        transform: translateX(-10%+$shadow9_pos);
+    }
+}
+@keyframes keep_sleep{
+    0%{
+        transform: rotate(0);
+    }
+    25%{
+        transform: rotate(5deg);
+    }
+    50%{
+        transform: rotate(0);
+    }
+    75%{
+        transform: rotate(-2.5deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
+$shdow-diraction:-1;
+@keyframes keep_sleep_shadow{
+    0%{
+        transform: scaleX($shdow-diraction);
+    }
+    25%{
+        transform: scaleX($shdow-diraction*1.2);
+    }
+    50%{
+        transform: scaleX($shdow-diraction);
+    }
+    75%{
+        transform: scaleX($shdow-diraction*.8);
+    }
+    100%{
+        transform: scaleX($shdow-diraction);
+    }
+}
+// snowman9
+@keyframes click_help{
+    0%{
+        transform: translateX(-100%) rotate(-20deg);
+    }
+    25%{
+        transform: translateX(-55%) rotate(-10deg);
+    }
+    50%{
+        transform: translateX(10%) rotate(0);
+    }
+    100%{
+        transform-origin: 50% 100%;
+        transform: translateX(0) rotate(-10deg);
+    }
+}
+$shadow9_pos:-80%;
+@keyframes click_help_shadow{
+    0%{
+        transform: translateX(-150%+$shadow9_pos);
+    }
+    25%{
+        transform: translateX(-80%+$shadow9_pos);
+    }
+    50%{
+        transform: translateX(10%+$shadow9_pos);
+    }
+    100%{
+        transform: translateX(-10%+$shadow9_pos);
+    }
+}
+@keyframes helping{
+    0%{
+        transform: translateX(10%) rotate(0);
+    }
+    100%{
+        transform-origin: 50% 100%;
+        transform: translateX(0) rotate(-10deg);
+    }
+}
+@keyframes helping_shadow{
     0%{
         transform: translateX(10%+$shadow9_pos);
     }

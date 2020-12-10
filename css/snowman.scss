@@ -139,44 +139,91 @@ $shadow-size:2vw;
             animation: sleep_shadow 5s ease-in-out infinite;
         }
     }
-    $falling_time: 2s;
-    $alternate_times: 1.5;
+}
+$falling_time: 2s;
+$alternate_times: 1.5;
+@mixin snowman8 {
+    height: 1.6vw;
+    right: 61%;
+    cursor: pointer;
+    &::after{
+        background-image: url(../img/snowman8.png);
+    }
+    &::before{
+        left: 50%;
+    }
+    .hat{
+        position: absolute;
+        top: -50%;
+        left: -10%;
+        width: .8vw;
+        height: .8vw;
+        background: url(../img/hat.png) no-repeat;
+        background-size: contain;
+        z-index: 3;
+    }
+}
+@mixin snowman9 {
+    height: 2.6vw;
+    right: 63%;
+    bottom: 13.5%;
+    cursor: pointer;
+    &::after{
+        background-image: url(../img/snowman9.png);
+    }
+    &::before{
+        left: 50%;
+        transform: translateX(-80%);
+    }
+}
+.snowman{
     &:nth-child(8){
-        height: 1.6vw;
-        right: 61%;
-        &::after{
-            background-image: url(../img/snowman8.png);
-            animation: falling $falling_time linear forwards alternate $alternate_times,sleep 1s linear infinite $falling_time*$alternate_times;
-        }
-        &::before{
-            left: 50%;
-            animation: falling_shadow $falling_time linear forwards alternate $alternate_times,sleep_shadow 1s linear infinite $falling_time*$alternate_times;
-        }
-        .hat{
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: .8vw;
-            height: .8vw;
-            background: url(../img/hat.png) no-repeat;
-            background-size: contain;
-            z-index: 3;
-            animation: falling_hat $falling_time linear forwards;
-        }
+        @include snowman8();
     }
     &:nth-child(9){
-        height: 2.6vw;
-        right: 63%;
-        bottom: 13.5%;
-        &::after{
-            background-image: url(../img/snowman9.png);
-            animation: help $falling_time linear forwards alternate $alternate_times,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times;
-        }
-        &::before{
-            left: 50%;
-            transform: translateX(-80%);
-            animation: help_shadow $falling_time linear forwards alternate $alternate_times,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times;
-        }
+        @include snowman9();
+    }
+}
+.falling{
+    @include snowman8();
+    &::after{
+        animation: falling $falling_time linear forwards alternate $alternate_times,sleep 1s linear infinite $falling_time*$alternate_times;
+    }
+    &::before{
+        animation: falling_shadow $falling_time linear forwards alternate $alternate_times,sleep_shadow 1s linear infinite $falling_time*$alternate_times;
+    }
+    .hat{
+        animation: falling_hat $falling_time linear forwards;
+    }
+}
+.click_falling{
+    @include snowman8();
+    &::after{
+        animation: click_falling $falling_time linear forwards alternate $alternate_times,keep_sleep 1s linear infinite $falling_time*$alternate_times;
+    }
+    &::before{
+        animation: click_falling_shadow $falling_time linear forwards alternate $alternate_times,keep_sleep_shadow 1s linear infinite $falling_time*$alternate_times;
+    }
+    .hat{
+        animation: click_falling_hat $falling_time linear forwards;
+    }
+}
+.helping{
+    @include snowman9();
+    &::after{
+        animation: l-help $falling_time linear forwards alternate $alternate_times,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times;
+    }
+    &::before{
+        animation: help_shadow $falling_time linear forwards alternate $alternate_times,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times;
+    }
+}
+.click_helping{
+    @include snowman9();
+    &::after{
+        animation: click_help $falling_time linear forwards alternate $alternate_times,helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times;
+    }
+    &::before{
+        animation: click_help_shadow $falling_time linear forwards alternate $alternate_times,helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times;
     }
 }
 @mixin sock {
@@ -188,6 +235,7 @@ $shadow-size:2vw;
     background: url(../img/sock.png) no-repeat;
     background-size: contain;
     transition: all .3s;
+    z-index: 1;
     &:hover{
         cursor: pointer;
         opacity: .6;

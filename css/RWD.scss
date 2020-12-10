@@ -677,13 +677,13 @@
                     right: 21%;
                     height: 5.2vw;
                     &::before{
-                        animation: help_shadow $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                        animation: m-help_shadow $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
                     }
                     &:after{
-                        animation: help $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                        animation: m-help $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
                     }
                 }
-                @keyframes help{
+                @keyframes m-help{
                     0%{
                         transform: translateX(0) rotate(-20deg);
                     }
@@ -699,7 +699,7 @@
                     }
                 }
                 $shadow9_pos:-80%;
-                @keyframes help_shadow{
+                @keyframes m-help_shadow{
                     0%{
                         transform: translateX($shadow9_pos);
                     }
@@ -1048,12 +1048,12 @@
                     right: 10%;
                     height: 10.5vw;
                     &::before{
-                        animation: help_shadow $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                        animation: s-help_shadow $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
                     }
                     &:after{
-                        animation: help $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                        animation: s-help $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
                     }
-                    @keyframes help{
+                    @keyframes s-help{
                         0%{
                             transform: translateX(0) rotate(-20deg);
                         }
@@ -1069,7 +1069,7 @@
                         }
                     }
                     $shadow9_pos:-80%;
-                    @keyframes help_shadow{
+                    @keyframes s-help_shadow{
                         0%{
                             transform: translateX($shadow9_pos);
                         }
@@ -1273,7 +1273,7 @@
                 bottom: 3.5%;
                 height: 10vw;
             }
-            @keyframes help{
+            @keyframes l-help{
                 0%{
                     transform: translateX(-100%) rotate(-20deg);
                 }
@@ -1536,9 +1536,9 @@
                         animation: help_shadow $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping_shadow $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
                     }
                     &:after{
-                        animation: help $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
+                        animation: s-help $falling_time linear forwards alternate $alternate_times $delay_time,keep_helping $falling_time/2 linear alternate infinite $falling_time*$alternate_times+$delay_time;
                     }
-                    @keyframes help{
+                    @keyframes s-help{
                         0%{
                             transform: translateX(0) rotate(-20deg);
                         }

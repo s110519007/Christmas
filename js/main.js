@@ -35,6 +35,21 @@ $(document).ready(function () {
             'transform': 'translateY(-20px)'
         });
     });
+    // snowman click falling
+    $('.snowman:nth-child(8)').addClass('falling');
+    $('.snowman:nth-child(9)').addClass('helping');
+    $('.snowman:nth-child(8)').click(function () { 
+        falling();
+    });
+    $('.snowman:nth-child(9)').click(function () { 
+        falling();
+    });
+    function falling() {
+        $('.snowman:nth-child(8)').toggleClass('click_falling');
+        $('.snowman:nth-child(8)').toggleClass('falling');
+        $('.snowman:nth-child(9)').toggleClass('click_helping');
+        $('.snowman:nth-child(9)').toggleClass('helping');
+    }
     // loading page
     var w=$(window).width();
     function loading() {

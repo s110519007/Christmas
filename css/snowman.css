@@ -240,18 +240,15 @@
 .snowman:nth-child(8) {
   height: 1.6vw;
   right: 61%;
+  cursor: pointer;
 }
 
 .snowman:nth-child(8)::after {
   background-image: url(../img/snowman8.png);
-  -webkit-animation: falling 2s linear forwards alternate 1.5, sleep 1s linear infinite 3s;
-          animation: falling 2s linear forwards alternate 1.5, sleep 1s linear infinite 3s;
 }
 
 .snowman:nth-child(8)::before {
   left: 50%;
-  -webkit-animation: falling_shadow 2s linear forwards alternate 1.5, sleep_shadow 1s linear infinite 3s;
-          animation: falling_shadow 2s linear forwards alternate 1.5, sleep_shadow 1s linear infinite 3s;
 }
 
 .snowman:nth-child(8) .hat {
@@ -263,28 +260,157 @@
   background: url(../img/hat.png) no-repeat;
   background-size: contain;
   z-index: 3;
-  -webkit-animation: falling_hat 2s linear forwards;
-          animation: falling_hat 2s linear forwards;
 }
 
 .snowman:nth-child(9) {
   height: 2.6vw;
   right: 63%;
   bottom: 13.5%;
+  cursor: pointer;
 }
 
 .snowman:nth-child(9)::after {
   background-image: url(../img/snowman9.png);
-  -webkit-animation: help 2s linear forwards alternate 1.5, keep_helping 1s linear alternate infinite 3s;
-          animation: help 2s linear forwards alternate 1.5, keep_helping 1s linear alternate infinite 3s;
 }
 
 .snowman:nth-child(9)::before {
   left: 50%;
   -webkit-transform: translateX(-80%);
           transform: translateX(-80%);
+}
+
+.falling {
+  height: 1.6vw;
+  right: 61%;
+  cursor: pointer;
+}
+
+.falling::after {
+  background-image: url(../img/snowman8.png);
+}
+
+.falling::before {
+  left: 50%;
+}
+
+.falling .hat {
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: .8vw;
+  height: .8vw;
+  background: url(../img/hat.png) no-repeat;
+  background-size: contain;
+  z-index: 3;
+}
+
+.falling::after {
+  -webkit-animation: falling 2s linear forwards alternate 1.5, sleep 1s linear infinite 3s;
+          animation: falling 2s linear forwards alternate 1.5, sleep 1s linear infinite 3s;
+}
+
+.falling::before {
+  -webkit-animation: falling_shadow 2s linear forwards alternate 1.5, sleep_shadow 1s linear infinite 3s;
+          animation: falling_shadow 2s linear forwards alternate 1.5, sleep_shadow 1s linear infinite 3s;
+}
+
+.falling .hat {
+  -webkit-animation: falling_hat 2s linear forwards;
+          animation: falling_hat 2s linear forwards;
+}
+
+.click_falling {
+  height: 1.6vw;
+  right: 61%;
+  cursor: pointer;
+}
+
+.click_falling::after {
+  background-image: url(../img/snowman8.png);
+}
+
+.click_falling::before {
+  left: 50%;
+}
+
+.click_falling .hat {
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: .8vw;
+  height: .8vw;
+  background: url(../img/hat.png) no-repeat;
+  background-size: contain;
+  z-index: 3;
+}
+
+.click_falling::after {
+  -webkit-animation: click_falling 2s linear forwards alternate 1.5, keep_sleep 1s linear infinite 3s;
+          animation: click_falling 2s linear forwards alternate 1.5, keep_sleep 1s linear infinite 3s;
+}
+
+.click_falling::before {
+  -webkit-animation: click_falling_shadow 2s linear forwards alternate 1.5, keep_sleep_shadow 1s linear infinite 3s;
+          animation: click_falling_shadow 2s linear forwards alternate 1.5, keep_sleep_shadow 1s linear infinite 3s;
+}
+
+.click_falling .hat {
+  -webkit-animation: click_falling_hat 2s linear forwards;
+          animation: click_falling_hat 2s linear forwards;
+}
+
+.helping {
+  height: 2.6vw;
+  right: 63%;
+  bottom: 13.5%;
+  cursor: pointer;
+}
+
+.helping::after {
+  background-image: url(../img/snowman9.png);
+}
+
+.helping::before {
+  left: 50%;
+  -webkit-transform: translateX(-80%);
+          transform: translateX(-80%);
+}
+
+.helping::after {
+  -webkit-animation: l-help 2s linear forwards alternate 1.5, keep_helping 1s linear alternate infinite 3s;
+          animation: l-help 2s linear forwards alternate 1.5, keep_helping 1s linear alternate infinite 3s;
+}
+
+.helping::before {
   -webkit-animation: help_shadow 2s linear forwards alternate 1.5, keep_helping_shadow 1s linear alternate infinite 3s;
           animation: help_shadow 2s linear forwards alternate 1.5, keep_helping_shadow 1s linear alternate infinite 3s;
+}
+
+.click_helping {
+  height: 2.6vw;
+  right: 63%;
+  bottom: 13.5%;
+  cursor: pointer;
+}
+
+.click_helping::after {
+  background-image: url(../img/snowman9.png);
+}
+
+.click_helping::before {
+  left: 50%;
+  -webkit-transform: translateX(-80%);
+          transform: translateX(-80%);
+}
+
+.click_helping::after {
+  -webkit-animation: click_help 2s linear forwards alternate 1.5, helping 1s linear alternate infinite 3s;
+          animation: click_help 2s linear forwards alternate 1.5, helping 1s linear alternate infinite 3s;
+}
+
+.click_helping::before {
+  -webkit-animation: click_help_shadow 2s linear forwards alternate 1.5, helping_shadow 1s linear alternate infinite 3s;
+          animation: click_help_shadow 2s linear forwards alternate 1.5, helping_shadow 1s linear alternate infinite 3s;
 }
 
 .sock_in {
@@ -297,6 +423,7 @@
   background-size: contain;
   -webkit-transition: all .3s;
   transition: all .3s;
+  z-index: 1;
   -webkit-animation: into_sock 2s ease-in-out,sock_in_shake 2s linear infinite 3s;
           animation: into_sock 2s ease-in-out,sock_in_shake 2s linear infinite 3s;
 }
@@ -316,6 +443,7 @@
   background-size: contain;
   -webkit-transition: all .3s;
   transition: all .3s;
+  z-index: 1;
   animation: out_sock 2s ease-in-out reverse .3s,sock_out_shake 2s linear infinite 3s;
 }
 
